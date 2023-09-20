@@ -6,7 +6,7 @@ using Pool.Container;
 
 namespace Pool
 {
-  public class ObjectPool<T> : IPoolElementReturner where T : IPoolElement
+  public class ObjectPool<T> : IPool<T> where T : IPoolElement
   {
     #region Properties
 
@@ -30,7 +30,7 @@ namespace Pool
       _factoryMethod = factory.Create;
     }
 
-    public void CreatePool(int elementsCount)
+    public void CreatePool(string poolName, int elementsCount)
     {
       _elements = new HashSet<T>(elementsCount);
       
@@ -53,7 +53,7 @@ namespace Pool
       poolElement.Commission();
       return poolElement;
     }
- 
+
     public void ReturnToPool(IPoolElement element)
     {
       element.Decommission();
