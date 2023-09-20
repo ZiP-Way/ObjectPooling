@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Pools;
+using Pools.ObjectPoolContext;
 
-namespace Pool.Container
+namespace Container
 {
   public class PoolsContainer : IGlobalElementsContainer, IPoolAccessor
   {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Container;
 using Factory;
-using Pool.Container;
 
-namespace Pool
+namespace Pools.ObjectPoolContext
 {
   public class ObjectPool<T> : IPool<T> where T : IPoolElement
   {
@@ -56,8 +56,10 @@ namespace Pool
 
     public void ReturnToPool(IPoolElement element)
     {
-      element.Decommission();
-      _elements.Add((T)element);
+      T poolElement = (T)element;
+      
+      poolElement.Decommission();
+      _elements.Add(poolElement);
     }
 
     private T CreateElement()

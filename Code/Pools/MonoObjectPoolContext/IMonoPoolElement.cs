@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Pools.ObjectPoolContext;
+using UnityEngine;
 
-namespace Pool.Container
+namespace Pools.MonoObjectPoolContext
 {
   public interface IMonoPoolElement : IPoolElement
   {

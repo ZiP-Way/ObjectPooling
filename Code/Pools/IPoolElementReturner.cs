@@ -1,4 +1,6 @@
-﻿namespace Pool
+﻿using Pools.ObjectPoolContext;
+
+namespace Pools
 {
   public interface IPoolElementReturner
   {

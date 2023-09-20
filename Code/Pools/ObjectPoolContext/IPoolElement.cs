@@ -1,4 +1,4 @@
-﻿namespace Pool
+﻿namespace Pools.ObjectPoolContext
 {
   public interface IPoolElement
   {

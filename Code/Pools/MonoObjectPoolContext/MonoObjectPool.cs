@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Container;
 using Factory;
-using Pool.Container;
+using Pools.ObjectPoolContext;
 using UnityEngine;
 
-namespace Pool
+namespace Pools.MonoObjectPoolContext
 {
   public class MonoObjectPool<T> : IPool<T> where T : IMonoPoolElement
   {

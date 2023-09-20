@@ -1,4 +1,7 @@
-﻿namespace Pool.Container
+﻿using Pools;
+using Pools.ObjectPoolContext;
+
+namespace Container
 {
   public interface IGlobalElementsContainer
   {
