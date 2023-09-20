@@ -2,12 +2,7 @@
   "name": "com.zip-way.objectpooling",
   "version": "1.0.1",
   "displayName": "Object Pooling",
-  "description": "",
+  "description": "by ZiP-Way",
   "unity": "2019.1",
-  "dependencies": {},
-  "author": {
-    "name": "Maksym",
-    "email": "zip.way.dev@gmail.com",
-    "url": "https://www.linkedin.com/in/zip-way/"
-  }
+  "dependencies": {}
 }
