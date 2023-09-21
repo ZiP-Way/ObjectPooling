@@ -38,6 +38,14 @@ namespace Pools.ObjectPoolContext
         _elements.Add(CreateElement());
     }
 
+    public void ClearPool()
+    {
+      foreach (T element in _elements) 
+        RemoveElementFromPool(element);
+      
+      _elements.Clear();
+    }
+
     public T GetFreeElement()
     {
       T poolElement;
@@ -54,14 +62,6 @@ namespace Pools.ObjectPoolContext
       return poolElement;
     }
 
-    public void ReturnToPool(IPoolElement element)
-    {
-      T poolElement = (T)element;
-      
-      poolElement.Decommission();
-      _elements.Add(poolElement);
-    }
-
     public void RemoveElementFromPool(T element)
     {
       _elements.Remove(element);
@@ -70,12 +70,12 @@ namespace Pools.ObjectPoolContext
       element.Dispose();
     }
 
-    public void ClearPool()
+    public void ReturnToPool(IPoolElement element)
     {
-      foreach (T element in _elements) 
-        RemoveElementFromPool(element);
+      T poolElement = (T)element;
       
-      _elements.Clear();
+      poolElement.Decommission();
+      _elements.Add(poolElement);
     }
 
     private T CreateElement()

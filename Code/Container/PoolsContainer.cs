@@ -26,5 +26,13 @@ namespace Container
 
     public void RemoveElementFromContainer(IPoolElement element) => 
       _container.Remove(element);
+
+    public void ClearAllPools()
+    {
+      foreach (IPool pool in _container.Values) 
+        pool.ClearPool();
+      
+      _container.Clear();
+    }
   }
 }

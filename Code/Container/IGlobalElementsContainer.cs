@@ -7,5 +7,6 @@ namespace Container
   {
     void AddElementToContainer(IPoolElement element, IPool pool);
     void RemoveElementFromContainer(IPoolElement element);
+    void ClearAllPools();
   }
 }

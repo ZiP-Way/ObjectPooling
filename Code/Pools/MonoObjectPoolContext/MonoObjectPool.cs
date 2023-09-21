@@ -44,6 +44,14 @@ namespace Pools.MonoObjectPoolContext
         _elements.Add(CreateElement());
     }
 
+    public void ClearPool()
+    {
+      foreach (T element in _elements) 
+        RemoveElementFromPool(element);
+      
+      _elements.Clear();
+    }
+
     public T GetFreeElement()
     {
       T poolElement;
@@ -60,6 +68,14 @@ namespace Pools.MonoObjectPoolContext
       return poolElement;
     }
 
+    public void RemoveElementFromPool(T element)
+    {
+      _elements.Remove(element);
+      _poolsContainer.RemoveElementFromContainer(element);
+      
+      Object.Destroy(element.Transform.gameObject);
+    }
+
     public void ReturnToPool(IPoolElement element)
     {
       T monoElement = (T)element;
@@ -70,22 +86,6 @@ namespace Pools.MonoObjectPoolContext
       monoElement.Transform.parent = _container;
     }
 
-    public void RemoveElementFromPool(T element)
-    {
-      _elements.Remove(element);
-      _poolsContainer.RemoveElementFromContainer(element);
-      
-      Object.Destroy(element.Transform.gameObject);
-    }
-
-    public void ClearPool()
-    {
-      foreach (T element in _elements) 
-        RemoveElementFromPool(element);
-      
-      _elements.Clear();
-    }
-    
     private T CreateElement()
     {
       T createdElement = _factoryMethod();
