@@ -2,7 +2,12 @@
   "name": "com.zip-way.objectpooling",
   "version": "1.0.1",
   "displayName": "Object Pooling",
-  "description": "by ZiP-Way",
+  "description": "",
   "unity": "2019.1",
-  "dependencies": {}
+  "dependencies": {},
+  "author":
+  {
+    "name": "Zip-Way",
+    "url": "https://www.youtube.com/@NightTrainCode/"
+  },
 }
