@@ -8,5 +8,6 @@ namespace Pools
     int FreeElementsCount { get; }
     void CreatePool(string poolName, int elementsCount);
     T GetFreeElement();
+    void RemoveElementFromPool(T element);
   }
 }

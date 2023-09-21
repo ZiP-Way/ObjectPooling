@@ -62,6 +62,12 @@ namespace Pools.ObjectPoolContext
       _elements.Add(poolElement);
     }
 
+    public void RemoveElementFromPool(T element)
+    {
+      _elements.Remove(element);
+      _poolsContainer.RemoveElementFromContainer(element);
+    }
+
     private T CreateElement()
     {
       T createdElement = _factoryMethod();

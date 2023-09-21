@@ -5,6 +5,7 @@ using Container;
 using Factory;
 using Pools.ObjectPoolContext;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Pools.MonoObjectPoolContext
 {
@@ -67,6 +68,14 @@ namespace Pools.MonoObjectPoolContext
       _elements.Add(monoElement);
       
       monoElement.Transform.parent = _container;
+    }
+
+    public void RemoveElementFromPool(T element)
+    {
+      _elements.Remove(element);
+      _poolsContainer.RemoveElementFromContainer(element);
+      
+      Object.Destroy(element.Transform.gameObject);
     }
 
     private T CreateElement()

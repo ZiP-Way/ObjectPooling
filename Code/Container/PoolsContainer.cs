@@ -23,5 +23,8 @@ namespace Container
 
     public void AddElementToContainer(IPoolElement element, IPoolElementReturner pool) => 
       _container.Add(element, pool);
+
+    public void RemoveElementFromContainer(IPoolElement element) => 
+      _container.Remove(element);
   }
 }
