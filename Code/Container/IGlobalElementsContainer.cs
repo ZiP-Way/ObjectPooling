@@ -5,7 +5,7 @@ namespace Container
 {
   public interface IGlobalElementsContainer
   {
-    void AddElementToContainer(IPoolElement element, IPoolElementReturner pool);
+    void AddElementToContainer(IPoolElement element, IPool pool);
     void RemoveElementFromContainer(IPoolElement element);
   }
 }

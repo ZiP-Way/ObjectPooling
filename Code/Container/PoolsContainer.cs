@@ -8,20 +8,20 @@ namespace Container
   {
     #region Fields
 
-    private Dictionary<IPoolElement, IPoolElementReturner> _container;
+    private Dictionary<IPoolElement, IPool> _container;
 
     #endregion
 
     public PoolsContainer() => 
-      _container = new Dictionary<IPoolElement, IPoolElementReturner>();
+      _container = new Dictionary<IPoolElement, IPool>();
 
     public IPoolElementReturner GetPool(IPoolElement element)
     {
-      _container.TryGetValue(element, out IPoolElementReturner pool);
+      _container.TryGetValue(element, out IPool pool);
       return pool;
     }
 
-    public void AddElementToContainer(IPoolElement element, IPoolElementReturner pool) => 
+    public void AddElementToContainer(IPoolElement element, IPool pool) => 
       _container.Add(element, pool);
 
     public void RemoveElementFromContainer(IPoolElement element) => 

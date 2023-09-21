@@ -78,6 +78,14 @@ namespace Pools.MonoObjectPoolContext
       Object.Destroy(element.Transform.gameObject);
     }
 
+    public void ClearPool()
+    {
+      foreach (T element in _elements) 
+        RemoveElementFromPool(element);
+      
+      _elements.Clear();
+    }
+    
     private T CreateElement()
     {
       T createdElement = _factoryMethod();

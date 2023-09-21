@@ -66,6 +66,16 @@ namespace Pools.ObjectPoolContext
     {
       _elements.Remove(element);
       _poolsContainer.RemoveElementFromContainer(element);
+      
+      element.Dispose();
+    }
+
+    public void ClearPool()
+    {
+      foreach (T element in _elements) 
+        RemoveElementFromPool(element);
+      
+      _elements.Clear();
     }
 
     private T CreateElement()
