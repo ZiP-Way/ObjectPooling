@@ -64,12 +64,14 @@ namespace Pools.MonoObjectPoolContext
       else
         poolElement = CreateElement();
 
-      poolElement.Commission();
+      poolElement.PrepareForUse();
       return poolElement;
     }
 
     public void RemoveElementFromPool(T element)
     {
+      element.FinalizeUse();
+      
       _elements.Remove(element);
       _poolsContainer.RemoveElementFromContainer(element);
       
@@ -80,7 +82,7 @@ namespace Pools.MonoObjectPoolContext
     {
       T monoElement = (T)element;
       
-      monoElement.Decommission();
+      monoElement.FinalizeUse();
       _elements.Add(monoElement);
       
       monoElement.Transform.parent = _container;

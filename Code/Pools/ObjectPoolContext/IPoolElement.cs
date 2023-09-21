@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Pools.ObjectPoolContext
+﻿namespace Pools.ObjectPoolContext
 {
-  public interface IPoolElement : IDisposable
+  public interface IPoolElement
   {
-    void Commission();
-    void Decommission();
+    void PrepareForUse();
+    void FinalizeUse();
   }
 }

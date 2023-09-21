@@ -58,23 +58,24 @@ namespace Pools.ObjectPoolContext
       else
         poolElement = CreateElement();
 
-      poolElement.Commission();
+      poolElement.PrepareForUse();
       return poolElement;
     }
 
     public void RemoveElementFromPool(T element)
     {
+      element.FinalizeUse();
+      
       _elements.Remove(element);
       _poolsContainer.RemoveElementFromContainer(element);
       
-      element.Dispose();
     }
 
     public void ReturnToPool(IPoolElement element)
     {
       T poolElement = (T)element;
       
-      poolElement.Decommission();
+      poolElement.FinalizeUse();
       _elements.Add(poolElement);
     }
 
